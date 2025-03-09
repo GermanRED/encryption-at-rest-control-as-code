@@ -1,0 +1,31 @@
+[project]
+name = "encryption-at-rest-control-as-code"
+version = "0.1.0"
+description = "Implementing the control: encryption at rest"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["boto3"]
+
+[dependency-groups]
+dev = ["pytest>=8.2", "types-boto3-custom", "moto[s3,rds]"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.ruff]
+src = ["src", "tests"]
+line-length = 120
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[tool.uv.sources]
+types-boto3-custom = { path = "vendored/types_boto3_custom-1.37.9-py3-none-any.whl" }
