@@ -6,6 +6,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = ["boto3"]
 
+[project.scripts]
+export = "inventory.export:main"
+
 [dependency-groups]
 dev = ["pytest>=8.2", "types-boto3-custom", "moto[s3,rds]"]
 

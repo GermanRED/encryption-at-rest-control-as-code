@@ -1,7 +1,7 @@
 import os
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass, fields
 from datetime import datetime
-from typing import Iterable
+from typing import Any, Iterable
 
 from boto3.session import Session
 from types_boto3_s3 import S3Client
@@ -16,6 +16,13 @@ class Storage(object):
     type: str
     encrypted: bool
     encryption_algorithm: str
+
+    @classmethod
+    def fieldnames(cls) -> tuple[str, ...]:
+        return tuple(f.name for f in fields(cls))
+
+    def dictfields(self) -> dict[str, Any]:
+        return asdict(self)
 
 
 _S3_ENCRYPTION_BY_DEFAULT = datetime(2023, 1, 5)
