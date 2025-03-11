@@ -25,5 +25,5 @@ test: ## run the test suite
 	uv run pytest -v
 
 .PHONY: export
-export: ## prints to screen the assets
-		uv run pytest -v
+export: ## prints to screen the assets in csv format
+	uv run export
