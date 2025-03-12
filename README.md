@@ -3,7 +3,7 @@
 Source code supporting the blog post
 [https://www.german.red/2025/03/01/control-testing-as-code/](https://www.german.red/2025/03/01/control-testing-as-code/)
 
-The project requires [uv](https://docs.astral.sh/uv/) to be installed.
+The project requires [uv](https://docs.astral.sh/uv/) to run the commands.
 
 ## Running the tests
 
@@ -19,3 +19,7 @@ If you want to test it against your own infrastructure, do the following:
  > $ AWS_MOCKED="false" make test
 
 As usual, test first with a non-production account.
+
+## Exporting the data
+
+As simple as `make export` and it will just print the inventory in json format.
